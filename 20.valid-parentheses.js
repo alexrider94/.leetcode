@@ -3,7 +3,8 @@
  *
  * [20] Valid Parentheses
  */
-
+// "([{]})" ")"
+// arr = [")""(" ] (stack) ([{
 // @lc code=start
 /**
  * @param {string} s
@@ -26,3 +27,20 @@ var isValid = function (s) {
     return true;
 }
 // @lc code=end
+var isValid = function (s) {
+    let list = { "(" : ")", "{": "}", "[":"]"};
+
+    let verify = s.split("").reduce((acc,rec)=>{
+        console.log(list[acc[acc.length-1]])
+        if(rec === list[acc[acc.length-1]]){
+            acc.pop();
+        }else{
+            acc.push(rec);
+        }
+        return acc;
+    }, []);
+
+    return verify.length === 0;
+}
+
+isValid("([])")
