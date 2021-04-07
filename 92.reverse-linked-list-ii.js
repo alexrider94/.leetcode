@@ -30,13 +30,11 @@ var reverseBetween = function(head, left, right) {
   let reversedPrev = null, reversedNext = null;
   for(let i = 0; i<=(right-left); ++i){
     reversedNext = reversedHead.next;
-    console.log("test1" + JSON.stringify(reversedNext) + "  " + JSON.stringify(reversedHead.next));
     //1. null = 3->4->5 reversedNext: 3->4->5
     //2. 3->4->5 = 4->5 reversedNext: 4->5
     //3. 4->5 = 5->null
     //reversedHead = 3->4->5->null // reversedHead.next = 4->5->null
     reversedHead.next = reversedPrev;
-    console.log("test2" + JSON.stringify(reversedHead) + "  " + JSON.stringify(reversedPrev));
     //1. reversedHead: 2->null
     //2. reversedHead: 3->2->null  --> reversedHead이 3부터 시작인데 꼬리부터 reversedPrev가 2->null이고 next에 붙여지면 3->2->null
     //3. reversedHead: 4->3->2->null
